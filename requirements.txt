@@ -1,0 +1,19 @@
+# This file is for your local environment
+# Therefore we mix the packages needed for az function and ML workspace
+# 
+# There is another requirements.txt located in './azfunctions', 
+# which is for deployment to Azure function. Make sure it is updated
+# as well, since this file is not accessed by az function.
+
+azure-functions
+azure-identity
+azure-keyvault
+pymssql
+pyodbc
+jupyter
+notebook
+pandas
+scikit-learn
+matplotlib
+mlflow
+azureml-mlflow
