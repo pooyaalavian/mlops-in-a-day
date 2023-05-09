@@ -26,7 +26,7 @@ def read_env():
             os.environ[key.upper()] = data[key]['value']
 
 def get_conn_str():
-    key_vault_uri = os.environ["KEY_VAULT_URI"]
+    key_vault_uri = os.environ["KEYVAULTURI"]
     credential = ClientSecretCredential(
         tenant_id=os.environ['TENANT_ID'],
         client_id=os.environ['CLIENT_ID'],

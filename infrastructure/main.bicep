@@ -86,12 +86,13 @@ module sp 'serviceprincipal.bicep' = {
 
 
 
-output key_vault string = aml.outputs.keyVaultId 
-output key_vault_uri string = aml.outputs.keyVaultUri 
-output fn_base_url string = fn.outputs.fn_url
 output name string = name 
 output env string = env 
 output location string = location
-output subid string = subscription().subscriptionId
-output rg string = rg.name
-output mlflow_tracking_uri string = aml.outputs.mlflow_uri
+output subscriptionId string = subscription().subscriptionId
+output resourceGroup string = rg.name
+output amlWorkspace string = aml.outputs.azureMlWorkspaceId
+output keyVault string = aml.outputs.keyVaultId 
+output keyVaultUri string = aml.outputs.keyVaultUri 
+output fnBaseUrl string = fn.outputs.fn_url
+output mlflowTrackingUri string = aml.outputs.mlflow_uri
