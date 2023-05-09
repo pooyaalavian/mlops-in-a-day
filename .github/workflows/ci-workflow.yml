@@ -24,7 +24,7 @@ jobs:
  
       - name: run training and model validation
         run: |
-         az ml job create --stream --file supporting_files/train_job/job.yml -g ${{ env.RESOURCEGROUP }} -w ${{ env.WORKSPACE }} 
+         az ml job create --stream --file supporting_files/train_job/job.yml -g ${{ vars.RESOURCEGROUP }} -w ${{ vars.WORKSPACE }} 
 
       - name:  Create Pull Request to Main
         uses: thomaseizinger/create-pull-request@master
