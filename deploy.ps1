@@ -1,4 +1,4 @@
-$name = 'pooya120'
+$name = 'mlopsiad01'
 $env = 'dev'
 $location = 'westus'
 $ip = (Invoke-WebRequest ifconfig.me/ip).Content 
@@ -33,4 +33,5 @@ if ($has_env -eq $false){
     venv/Scripts/pip install -r requirements.txt
 }
 
+venv/Scripts/python make_env.py
 venv/Scripts/python sql/publish.py
