@@ -8,7 +8,7 @@ az ad sp create-for-rbac -n $spname --output json > sp.env.json
 
 $spAppId = (Get-Content .\sp.env.json -Raw | ConvertFrom-Json).appId
 $spAppSecret = (Get-Content .\sp.env.json -Raw | ConvertFrom-Json).password
-$spObjId = (az ad sp list --display-name "$spname" --output tsv --query [].id)
+# $spObjId = (az ad sp list --display-name "$spname" --output tsv --query [].id)
 
 
 $deployName = "deploy"+$name+$env
@@ -23,7 +23,7 @@ $scope = '/subscriptions/'+$subid+'/resourceGroups/'+$rg
 
 az role assignment create --assignee $spAppId --role Contributor --scope $scope
 az keyvault set-policy --name $kv --object-id $spAppId --secret-permissions get list 
-az keyvault set-policy --name $kv --object-id $spObjId --secret-permissions get list 
+# az keyvault set-policy --name $kv --object-id $spObjId --secret-permissions get list 
 
 # Python setup
 $has_env = Test-Path venv/
