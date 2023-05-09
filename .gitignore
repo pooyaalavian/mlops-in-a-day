@@ -134,3 +134,7 @@ __blobstorage__
 __queuestorage__
 __azurite_db*__.json
 .python_packages
+.amlignore
+.amltmp
+.amlignore.amltmp
+.ipynb_aml_checkpoints/
