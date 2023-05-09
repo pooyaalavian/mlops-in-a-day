@@ -16,7 +16,7 @@ jobs:
       - name: Login to Az Cli
         uses: azure/login@v1.4.6
         with:
-          creds: '{"clientId":"${{ secrets.AZURE.clientId }}","clientSecret":"${{ secrets.AZURE.clientSecret }}","subscriptionId":"${{ secrets.AZURE.subscriptionId }}","tenantId":"${{ secrets.AZURE.tenantId }}"}'
+          creds: ${{ secrets.AZURE }}
 
       - name: Install az ml & set default values for AML
         run: | 
