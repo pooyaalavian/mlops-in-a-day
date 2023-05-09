@@ -13,18 +13,18 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3.5.2
+
       - name: Login to Az Cli
         uses: azure/login@v1.4.6
         with:
           creds: ${{ secrets.AZURE }}
 
-      - name: Install az ml & set default values for AML
-        run: | 
-          az extension add -n ml -y --version 2.2.1
-          az configure --defaults group=${{ secrets.AZURE.resourceGroup }} workspace=${{ secrets.AZURE.workspace }} location=${{ secrets.AZURE.location }}  
+      - name: Install az ml 
+        run: az extension add -n ml -y --version 2.2.1
+ 
       - name: run training and model validation
         run: |
-         az ml job create --stream --file supporting_files/train_job/job.yml -g ${{ secrets.AZURE.resourceGroup }} -w ${{ secrets.AZURE.workspace }} 
+         az ml job create --stream --file supporting_files/train_job/job.yml -g ${{ env.RESOURCEGROUP }} -w ${{ env.WORKSPACE }} 
 
       - name:  Create Pull Request to Main
         uses: thomaseizinger/create-pull-request@master
