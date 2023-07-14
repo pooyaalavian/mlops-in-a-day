@@ -1,4 +1,4 @@
-$name = 'mlopsiad02'
+$name = 'mydemo01'
 $env = 'dev'
 $location = 'westus'
 $ip = (Invoke-WebRequest ifconfig.me/ip).Content 
