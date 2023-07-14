@@ -29,6 +29,10 @@ resource sqlDatabase 'Microsoft.Sql/servers/databases@2021-02-01-preview' = {
     // edition: 'Basic'
     maxSizeBytes: 1073741824
   }
+  sku:{
+    name: 'GP_S_Gen5_1'
+    tier:  'GeneralPurpose'
+  }
 }
 
 resource keyVault 'Microsoft.KeyVault/vaults@2021-04-01-preview' existing= {
